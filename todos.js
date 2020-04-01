@@ -37,7 +37,6 @@ const todos = [
   },
   
 ]
-
 let currentTodos = todos.slice();
 
 

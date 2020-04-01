@@ -21,7 +21,7 @@ const isComplete = function(todo) {
 }
 
 const isNotComplete = function(todo) {
-  return !isComplete(todo)
+  return !isComplete(todo);
 }
 
 const isHighPriority = function(todo) {
@@ -32,8 +32,25 @@ const isLowPriority = function(todo) {
   return todo.priority === 1
 }
 
+const helperNotCompleteFirst = function (todo1, todo2) {
+  if(isNotComplete(todo1)) {
+    return -1;
+  } else if (isNotComplete(todo2)) {
+    return 1;
+  } else if (getCompleteness(todo1) === getCompleteness(todo2)) {
+    return 0;
+  }
+}
 
-
+const helperPriority2First = function (todo1, todo2) {
+  if (isHighPriority(todo1)) {
+    return 1;
+  } else if (isHighPriority(todo2)) {
+    return 1;
+  } else if (getPriority(todo1) === getPriority(todo2)){
+    return 0;
+  }
+}
 /***********************
  * ITERATION FUNCTIONS *
  ***********************/
@@ -64,13 +81,15 @@ const priority1Only = function (todos) {
   return todos.filter(isLowPriority)
 }
 
-if (typeof notCompleteFirst === 'undefined') {
-  notCompleteFirst = undefined;
+const notCompleteFirst = function (todos) {
+  return todos.filter(helperNotCompleteFirst);
 }
 
-if (typeof priority2First === 'undefined') {
-  priority2First = undefined;
+const priority2First = function (todos) {
+  return todos.filter(helperPriority2First);
 }
+
+
 
 module.exports = {
   getTodoName,

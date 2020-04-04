@@ -1,4 +1,21 @@
+body {
+    /* background-image: url("./assets/background-image-body.jpg"); */
+    text-shadow: 1px 1px red;
+    margin: 200px;
+}
 .complete {
     text-decoration: line-through;
-    background-color: greenyellow;
+    color: greenyellow;
+}
+h1 {
+    color: lawngreen
+}
+#app {
+    display: flex;
+    justify-content: space-around;
+    margin: 200px;
+}
+ol {
+    width: 600px;
+    background-color: ;
 }

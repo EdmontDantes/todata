@@ -33,23 +33,15 @@ const isLowPriority = function(todo) {
 }
 
 const helperNotCompleteFirst = function (todo1, todo2) {
-  if(isNotComplete(todo1)) {
-    return -1;
-  } else if (isNotComplete(todo2)) {
-    return 1;
-  } else if (getCompleteness(todo1) === getCompleteness(todo2)) {
-    return 0;
-  }
+  todo1 = todo1.complete;
+  todo2 = todo2.complete;
+  return todo2 - todo1;
 }
 
 const helperPriority2First = function (todo1, todo2) {
-  if (isHighPriority(todo1)) {
-    return 1;
-  } else if (isHighPriority(todo2)) {
-    return 1;
-  } else if (getPriority(todo1) === getPriority(todo2)){
-    return 0;
-  }
+  todo1 = todo1.priority;
+  todo2 = todo2.priority;
+  return todo2 - todo1;
 }
 
 const togglePrioritiesSliceToOriginalHelper = function (todo) {
@@ -87,11 +79,11 @@ const priority1Only = function (todos) {
 }
 
 const notCompleteFirst = function (todos) {
-  return [...todos].filter(helperNotCompleteFirst);
+  return [...todos].sort(helperNotCompleteFirst);
 }
 
 const priority2First = function (todos) {
-  return [...todos].filter(helperPriority2First);
+  return [...todos].sort(helperPriority2First);
 }
 
 const togglePrioritiesSliceToOriginal = function (todos) {

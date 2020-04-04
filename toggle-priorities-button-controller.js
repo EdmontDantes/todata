@@ -1,15 +1,12 @@
 document.querySelector('.toggle-priorities').addEventListener(
     'click', function(event) {
-        let pressButton = document.querySelector('.toggle-priorities');
-
-        if (pressButton.innerText === 'Show Priorities') {
-            pressButton.innerText = 'Hide Priorities';
-            currentTodos = namesAndPriorities(currentTodos);
-            
-        } else if (pressButton.innerText === 'Hide Priorities') {
-            pressButton.innerText = 'Show Priorities';
-            // currentTodos = togglePrioritiesSliceToOriginal(currentTodos);
+    const pressButtonToggle = document.querySelector('.toggle-priorities');
+    if (pressButtonToggle.innerText === 'Show Priorities') {
+        pressButtonToggle.innerText = 'Hide Priorities';
+        currentTodos = namesAndPriorities(currentTodos);
+        } else if (pressButtonToggle.innerText === 'Hide Priorities') {
+        pressButtonToggle.innerText = 'Show Priorities';
+        // currentTodos = togglePrioritiesSliceToOriginal(currentTodos);
         }
         refreshTodos();
-    }
-)
+    });

@@ -2,7 +2,7 @@ document.querySelector('.high-priority-first').addEventListener('click', functio
     let pressButttonHighPriority = document.querySelector('.high-priority-first');
     if (pressButttonHighPriority.innerText === 'High Priority First') {
         pressButttonHighPriority.innerText = 'Original Order';
-        currentTodos = priority2First(todos);
+        currentTodos = priority2First(currentTodos);
     } else if (pressButttonHighPriority.innerText === 'Original Order') {
         pressButttonHighPriority.innerText = 'High Priority First';
         currentTodos = [...todos];

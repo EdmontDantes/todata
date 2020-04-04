@@ -6,7 +6,7 @@ document.querySelector('.toggle-priorities').addEventListener(
         currentTodos = namesAndPriorities(currentTodos);
         } else if (pressButtonToggle.innerText === 'Hide Priorities') {
         pressButtonToggle.innerText = 'Show Priorities';
-        // currentTodos = togglePrioritiesSliceToOriginal(currentTodos);
+        currentTodos = togglePrioritiesSliceToOriginal(currentTodos);
         }
         refreshTodos();
     });

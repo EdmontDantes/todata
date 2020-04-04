@@ -44,10 +44,7 @@ const helperPriority2First = function (todo1, todo2) {
   return todo2 - todo1;
 }
 
-const togglePrioritiesSliceToOriginalHelper = function (todo) {
-  todo.text = todo.text.slice(0, todo.text.indexOf('-'))
-  return todo;
-}
+
 /***********************
  * ITERATION FUNCTIONS *
  ***********************/
@@ -57,9 +54,9 @@ const names = function (todos) {
 }
 
 const namesAndPriorities = (todos) => todos.map((todo) => {
-    const priority = todo.priority === 2 ? 'High' : 'Low';
-
-    return `${todo.text} - ${priority}`
+  const priority = todo.priority === 2 ? 'High' : 'Low';
+  todo.text = `${todo.text} - ${priority}`
+  return todo
 })
 
 const justNotComplete = function (todos) {
@@ -86,9 +83,11 @@ const priority2First = function (todos) {
   return [...todos].sort(helperPriority2First);
 }
 
-const togglePrioritiesSliceToOriginal = function (todos) {
-  todos.map(togglePrioritiesSliceToOriginalHelper)
-}
+
+const togglePrioritiesSliceToOriginal = (todos) => todos.map((todo) => {
+  todo.text = todo.text.slice(0,todo.text.indexOf('-'))
+    return todo
+})
 
 module.exports = {
   getTodoName,

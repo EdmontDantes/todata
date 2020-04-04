@@ -22,8 +22,13 @@ const printTodo = function(todo) {
   // Give the name <p> an event listener to toggle its completeness.
   li.addEventListener('click', function(event) {
     event.target.classList.toggle('complete')
-    todos.
     // TODO: find the correct todo in your data to toggle the completeness of!
+    if (li.className === 'complete todo-item' 
+    || li.className === 'todo-item complete') {
+      todo.complete = true;
+    } else if (li.className === 'todo-item') {
+      todo.complete = false;
+    }
     
   })
 }

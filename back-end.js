@@ -51,6 +51,11 @@ const helperPriority2First = function (todo1, todo2) {
     return 0;
   }
 }
+
+const togglePrioritiesSliceToOriginalHelper = function (todo) {
+  todo.text = todo.text.slice(0, todo.text.indexOf('-'))
+  return todo;
+}
 /***********************
  * ITERATION FUNCTIONS *
  ***********************/
@@ -82,14 +87,16 @@ const priority1Only = function (todos) {
 }
 
 const notCompleteFirst = function (todos) {
-  return todos.filter(helperNotCompleteFirst);
+  return [...todos].filter(helperNotCompleteFirst);
 }
 
 const priority2First = function (todos) {
-  return todos.filter(helperPriority2First);
+  return [...todos].filter(helperPriority2First);
 }
 
-
+const togglePrioritiesSliceToOriginal = function (todos) {
+  todos.map(togglePrioritiesSliceToOriginalHelper)
+}
 
 module.exports = {
   getTodoName,

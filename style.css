@@ -1,14 +1,14 @@
 body {
     /* background-image: url("./assets/background-image-body.jpg"); */
-    text-shadow: 1px 1px red;
+    text-shadow: 0px 1px;
     margin: 200px;
 }
 .complete {
     text-decoration: line-through;
-    color: greenyellow;
+    color: green;
 }
 h1 {
-    color: lawngreen
+    color: lawngreen;
 }
 #app {
     display: flex;
@@ -17,5 +17,5 @@ h1 {
 }
 ol {
     width: 600px;
-    background-color: ;
+    background-color: lavender;
 }

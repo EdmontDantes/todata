@@ -32,10 +32,10 @@ const isLowPriority = function(todo) {
   return todo.priority === 1
 }
 
-const helperNotCompleteFirst = function (todo1, todo2) {
+const helperCompleteFirst = function (todo1, todo2) {
   todo1 = todo1.complete;
   todo2 = todo2.complete;
-  return todo2 - todo1;
+  return todo1 - todo2;
 }
 
 const helperPriority2First = function (todo1, todo2) {
@@ -75,8 +75,8 @@ const priority1Only = function (todos) {
   return todos.filter(isLowPriority)
 }
 
-const notCompleteFirst = function (todos) {
-  return [...todos].sort(helperNotCompleteFirst);
+const CompleteFirst = function (todos) {
+  return [...todos].sort(helperCompleteFirst);
 }
 
 const priority2First = function (todos) {
